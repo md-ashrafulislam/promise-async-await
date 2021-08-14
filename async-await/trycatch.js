@@ -1,4 +1,4 @@
-const hasMeeting = false;
+const hasMeeting = true;
 
 const meeting = new Promise((resolve,reject)=>{
   if(!hasMeeting){
@@ -26,13 +26,24 @@ const meeting = new Promise((resolve,reject)=>{
    
 };
 
-  async function myMeeting () {
+  /* async function myMeeting () {
+    try {
       const meetingDetails = await meeting;
       const calendar = await addTocalendar(meetingDetails);
       console.log(calendar);
-    }
-      
-  
+    } catch (e) {
+        console.log(e)
+    } 
+  } */
+  async function myMeeting () {
+    try {
+      const meetingDetails = await meeting;
+      const calendar = await addTocalendar(meetingDetails);
+      console.log(calendar);
+    } catch {
+        console.log(`Something wrong happend`)
+    } 
+  }
 
  myMeeting();
 
